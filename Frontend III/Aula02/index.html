@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <title>Criando elementos com React</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <div id="container2"></div>
+    <div id="container3"></div>
+    
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- JSX é uma extensão para criação de componentes -->
+    <!-- Babel é a transpilação de código entendível para o navegador -->
+    <script type="text/babel">
+
+        function handleButton(){
+            alert('ok2');
+        }
+
+        const subtitulo = "Lista Frutas";
+        const frutas = ["Laranja", "Maçã", "Banana", "Kiwi"];
+
+        var container = 
+        <div>
+            <h1 style={{color: 'red'}}>Hello World</h1>
+            <h2 className="subtitle">{subtitulo}</h2>
+            <ul>
+                <li>Maçã</li>
+                <li>{frutas[0]}</li>
+                <li>{frutas[2]}</li>
+                <li>{frutas[3]}</li>
+            </ul>
+            <ol>
+                {
+                    frutas.map((item, index)=>{
+                        return <li key={index.toString()}>{item}</li>;
+                    })
+                }
+            </ol>
+            <img src="./planta-original1.jpeg"/>
+            <button onClick={()=>alert('ok')}>Pressionar</button> 
+            <button onClick={handleButton}>Pressionar2</button>
+        </div>;
+
+        ReactDOM.render(container, document.getElementById("container"));
+        
+        function Box({item, preco}){
+                return(
+                    <>
+                        <h1>{item || "Não passou o item"}</h1>
+                        <p>{"R$ "+(preco || "------")}</p>
+                    </>
+                )
+        }
+
+        const container2 = 
+        <>
+            <Box item="Geladeira" preco="4000"/>
+            <Box item="Fogão" preco="2000"/>
+            <Box item="Microondas" preco="500"/>
+            <Box />
+        </>
+
+        ReactDOM.render(container2, document.getElementById("container2"));
+
+        const Box2 = ({item}) => <li>{item ? item : "Não passou o item"}</li>;
+        const plantas=["Jibóia", "Maranta", "Filodendro"];
+
+        const container3 = 
+        <ul>
+            {
+                plantas.map((item,index) => <Box2 key={index.toString()} item={item} />)
+            }    
+        </ul>
+
+        ReactDOM.render(container3, document.getElementById("container3"));
+
+
+    </script>
+
+</body>

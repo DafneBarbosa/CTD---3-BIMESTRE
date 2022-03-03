@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Criando elementos com React</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <div id="container2"></div>
+
+    <!-- Revisão com javascript vanilla -->
+    <script> 
+        var container = document.getElementById("container");
+        var h1 = document.createElement("h1");
+        var conteudo = document.createTextNode("Olá mundo!")
+
+        h1.appendChild(conteudo);
+        container.appendChild(h1);
+    </script>
+
+    <!-- Agora com React (link site para os links: https://pt-br.reactjs.org/docs/cdn-links.html)-->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script>
+        var h1 = React.createElement("h1",{id:"title", style:{color:'red', backgroundColor:'blue'}}, "Hello World");
+        var button = React.createElement("button",{onClick: ()=>alert("ok")},"Aperte");
+        var container = React.createElement("div",{},[h1,button]);
+
+        ReactDOM.render(container, document.getElementById("container2"));
+    </script>
+
+</body>

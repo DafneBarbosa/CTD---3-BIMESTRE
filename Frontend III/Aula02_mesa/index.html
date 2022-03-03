@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <title>Criando elementos com React</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <div id="container2"></div>
+    <div id="container3"></div>
+    
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- JSX é uma extensão para criação de componentes -->
+    <!-- Babel é a transpilação de código entendível para o navegador -->
+    <script type="text/babel">
+
+
+        const estoque = [ "Maçã", "Pera", "Laranja","Banana"];
+        const falta = [ "Pessego", "Cereja", "Kiwi"];
+
+        const Box2 = ({item}) => <li>{item || "----"}</li>;
+
+        const container = 
+        <>
+        <h1>Lista de produtos em estoque:</h1>
+        <ul>
+            {
+                estoque.map((item,index) => <Box2 key={index.toString()} item={item} />)
+            }    
+        </ul>
+
+        <h2>Produtos em falta:</h2>
+        <ul>
+            {
+                falta.map((item,index) => <Box2 key={index.toString()} item={item} />)
+            }    
+        </ul>
+        </>
+
+        ReactDOM.render(container, document.getElementById("container"));
+
+
+    </script>
+
+</body>
