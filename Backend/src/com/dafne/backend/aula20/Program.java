@@ -45,6 +45,19 @@ public class Program {
         System.out.println(empresaLida);
 
 
+        //Lendo o arquivo import
+        System.out.println("\nLendo o arquivo import:");
+        FileInputStream fi2 = null;
+        try {
+            fi2 = new FileInputStream("aula20_Import.txt");
+            int i = fi2.read();
+            while(i != -1){
+                System.out.print((char)i);
+                i = fi2.read();
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
 
 
