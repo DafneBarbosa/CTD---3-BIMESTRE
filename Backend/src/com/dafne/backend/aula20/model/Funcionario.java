@@ -9,6 +9,8 @@ public class Funcionario implements Serializable {
     private String documento;
     private Double salario;
 
+    public Funcionario(){}
+
     public Funcionario(String nome, String sobrenome, String documento, Double salario) {
         this.nome = nome;
         this.sobrenome = sobrenome;

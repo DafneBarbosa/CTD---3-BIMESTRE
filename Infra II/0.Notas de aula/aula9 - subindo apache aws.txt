@@ -1,0 +1,31 @@
+
+
+1 - criar sua VM
+2 - acessar vm  -  Vai na pasta onde está sua chave e dá um git bash here
+		   CMD: chmod 400 chavetumdafne.pem (para garantir que sua chave não fique visível publicamente)
+		   CMD: ssh -i "chavetumdafne.pem" ec2-user@ec2-18-119-99-171.us-east-2.compute.amazonaws.com
+3 - instalar apache - CMD: sudo yum install httpd (se for amazon linux)
+		      CMD: sudo apt install apache2 -y (se for ubuntu)
+4 - inicializar apache - CMD: sudo systemctl start httpd (se for amazon linux)
+
+5 - checando status apache - CMD: systemctl status httpd (se for amazon linux)
+
+6 - instalando o git - sudo yum install git (se for amazon linux)
+
+7 - clonando um repositorio - sudo git clone https://github.com/nidiodolfini/aula21
+
+8 - dando acesso ao arquivo - sudo chmod 777-R aula21/
+
+9 - colocando o arquivo na pasta para o apache acessar =  sudo cp -rf aula21/* /var/www/html/
+
+10 - copia i id publico da sua maquina e roda no navegador
+
+FAZENDO LOAD BALANCER:
+1 - Vai em Load Balancer
+2 - criar load balancer
+3 - seleciona o classic load balancer (o mai em baixo da pagina)
+4 - cria um nome para o load balancer
+
+
+REPO CLONADO: https://github.com/nidiodolfini/aula21
+CONTRUIR LOAD BALANCER: https://docs.google.com/document/d/1uc3K07tpYEkFC54rxr1zBdvU1iH5wLiKWSFVEUiVK2k/edit#heading=h.dqwa0t8yrq0e
