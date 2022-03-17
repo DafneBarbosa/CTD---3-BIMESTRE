@@ -1,0 +1,32 @@
+
+.container {
+    width: 90vw;
+    padding: 10px 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    margin: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:1.3rem;
+}
+
+.container div{
+    display: flex;
+    align-items: center;
+}
+
+input {
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.tarefa_feita {
+    text-decoration: line-through;
+    margin-left: 15px;
+}
+
+.tarefa_a_fazer {
+    font-weight: bold;
+    margin-left: 15px;
+}
